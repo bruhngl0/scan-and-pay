@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "scan-and-pay",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-12",
+  "vars": {
+    "DATABASE_URL": "prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOTZkYjEwZGEtODA1YS00NDdjLWJiMDgtMjhlMDQ0ZTYyODFlIiwidGVuYW50X2lkIjoiZDYxMjVkZmJmZTZmNWE3N2Q2YjRjOTU1ZjAwMTcyOGQ2MDhjMGUwZjhjZmI2M2JjNGY5ZTRjNjczZDJkYjJlOCIsImludGVybmFsX3NlY3JldCI6ImY4MDdkYWVlLTQ2MGMtNGEyZS1iMjZhLWI1NDAyMWFiNDFmMiJ9.nd566molKybL1arXdTQNAeK-eJfJQmbygClRuHvdsHQ"
+  },
+  "build": {
+    "upload": {
+      "format": "modules",
+      "rules": [
+        {
+          "type": "ESModule",
+          "globs": [
+            "**/*.ts"
+          ]
+        }
+      ]
+    }
+  },
+  "esbuild": {
+    "external": [
+      ".prisma/client/edge"
+    ]
+  }
+}
