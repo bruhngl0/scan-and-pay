@@ -4,7 +4,7 @@
   "main": "src/index.ts",
   "compatibility_date": "2025-04-12",
   "vars": {
-    "DATABASE_URL": "prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOTZkYjEwZGEtODA1YS00NDdjLWJiMDgtMjhlMDQ0ZTYyODFlIiwidGVuYW50X2lkIjoiZDYxMjVkZmJmZTZmNWE3N2Q2YjRjOTU1ZjAwMTcyOGQ2MDhjMGUwZjhjZmI2M2JjNGY5ZTRjNjczZDJkYjJlOCIsImludGVybmFsX3NlY3JldCI6ImY4MDdkYWVlLTQ2MGMtNGEyZS1iMjZhLWI1NDAyMWFiNDFmMiJ9.nd566molKybL1arXdTQNAeK-eJfJQmbygClRuHvdsHQ"
+    "DATABASE_URL": "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNTQzZjBiYjgtOTRmYS00ZWFlLTk4MTUtYjBkNWFlYWYzNjc1IiwidGVuYW50X2lkIjoiOTJkN2EyYzNhY2JkY2ZjMTdiY2JhMzdmNTNjMjM3NmNjNjBiOGI3NGU4ZGU4M2NmZTA1MjUzNTVhYTIwMDdmYiIsImludGVybmFsX3NlY3JldCI6IjA5MDVjNGU3LTY1NjItNGQ2Ni1hYmRmLWMxYWFlYzQ2MTk4MSJ9.Ozet3cVxkAUXwLJ0mV_lb28EweBmZRoapjgjV6wNJYA"
   },
   "build": {
     "upload": {

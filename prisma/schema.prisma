@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../../node_modules/.prisma/client"
@@ -14,49 +8,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-
 model User {
-  id        Int       @id @default(autoincrement()) // Unique user ID
-  email     String    @unique // User's unique email for login
-  name      String    // User's full name
-  payments  Payment[] // One-to-many relationship with Payment model
-  createdAt DateTime  @default(now()) // When the user account was created
-  updatedAt DateTime  @updatedAt // Last update time for the user
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  payments  Payment[]
 }
-
-
 
 model Payment {
-  id             Int       @id @default(autoincrement()) // Unique payment ID
-  userId         Int       // Foreign key linking to the User model
-  amount         Float     // Amount to be paid
-  status         PaymentStatus // Payment status: Pending, Completed, Confirmed
-  barcodeUrl     String?    // URL for the UPI barcode image
-  transactionId  String?   // Optional transaction ID after payment is made
-  createdAt      DateTime  @default(now()) // Payment initiation time
-  updatedAt      DateTime  @updatedAt // Last updated time for the payment status
-  user           User      @relation(fields: [userId], references: [id]) // Relationship to the User
-
-  // Enum to track the payment status
-
+  id            Int           @id @default(autoincrement())
+  userId        Int
+  amount        Float
+  status        PaymentStatus
+  barcodeUrl    String?
+  transactionId String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  user          User          @relation(fields: [userId], references: [id])
 }
-
-
-  enum PaymentStatus {
-    PENDING     // User initiated the payment and waiting for confirmation
-    COMPLETED   // User has completed payment, waiting for admin confirmation
-    CONFIRMED   // Admin confirms the payment
-  }
-
 
 model Admin {
-  id         Int       @id @default(autoincrement()) // Unique admin ID
-  email      String    @unique // Admin's email for login
-  password   String    // Admin password (encrypted)
-  name       String    // Admin's full name
-  createdAt  DateTime  @default(now()) // Account creation time
-  updatedAt  DateTime  @updatedAt // Last update time for the admin account
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  CONFIRMED
+}
