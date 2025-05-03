@@ -1,0 +1,9 @@
+name = "stillcircle"
+main = "src/index.ts"
+compatibility_date = "2024-12-27"
+
+
+[vars]
+
+DATABASE_URL = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNjJjYzY3OTUtMTA1MC00NzMwLWJhM2UtODk4NDFiMWY1OWQ0IiwidGVuYW50X2lkIjoiZmIwODBmYmEyMGRiYmZkYjE2OTEyZTQzNWM2NzkyNjQ1YjFmMDZlYTEwZmJmNjhhYmZiYzkyZGUyZmQ4Y2JhNSIsImludGVybmFsX3NlY3JldCI6IjJkMDI1YzEwLThmYTUtNGNlMy1iZWVmLWU3M2QxM2JlYjM3MyJ9.Qm1oxjDwxrKwRoP6maIXciXBtPog5wzkW9gZxUe2bvQ"
+DIRECT_URL = "<YOUR_DATABASE_CONNECTION_STRING>"

@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../../node_modules/.prisma/client"
+  output   = "./generated/prisma-client"
 }
 
 datasource db {
@@ -8,39 +8,55 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
-  name      String
-  password  String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  payments  Payment[]
+model WaitlistEntry {
+  id               Int                    @id @default(autoincrement())
+  fullName         String
+  email            String                 @unique
+  phoneNumber      String?
+  age              Int?
+  occupation       Occupation
+  soundHealingExp  SoundHealingExperience
+  waterComfort     WaterComfort
+  preferredSession PreferredSession
+  futureJourney    FutureJourney
+  instagramHandle  String?                @db.VarChar(255)
+  createdAt        DateTime               @default(now())
 }
 
-model Payment {
-  id            Int           @id @default(autoincrement())
-  userId        Int
-  amount        Float
-  status        PaymentStatus
-  barcodeUrl    String?
-  transactionId String?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
-  user          User          @relation(fields: [userId], references: [id])
+enum Occupation {
+  Entrepreneur
+  WorkingProfessional
+  Creative
+  WellnessPractitioner
+  Student
+  Athlete
+  Homemaker
+  Exploring
+  Other
 }
 
-model Admin {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+enum SoundHealingExperience {
+  YesRegularly
+  OnceOrTwice
+  NotYetButCurious
+  FirstTime
 }
 
-enum PaymentStatus {
-  PENDING
-  COMPLETED
-  CONFIRMED
+enum WaterComfort {
+  YesAbsolutely
+  LoveToTryWithSupport
+  PreferGroundingSoundJourneys
+}
+
+enum PreferredSession {
+  Sunrise
+  Sunset
+  Night
+  Flexible
+}
+
+enum FutureJourney {
+  Yes
+  OnlyForThisSession
+  NotAtTheMoment
 }
