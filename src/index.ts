@@ -3,10 +3,15 @@ import {
   FutureJourney,
   Occupation,
   PreferredSession,
-  PrismaClient,
   WaterComfort,
+  PrismaClient,
   SoundHealingExperience,
-} from "@prisma/client/edge";
+  Jobrole,
+  FitnessLevel,
+  YesNo,
+  CaffeineSensitivity,
+} from "../prisma/generated/prisma-client/edge";
+
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { cors } from "hono/cors";
 
@@ -16,7 +21,7 @@ const app = new Hono<{
   };
 }>();
 
-app.use("/*", cors());
+app.use("/*", cors({ origin: "*" }));
 
 export const getPrisma = (database_url: string) => {
   const prisma = new PrismaClient({
@@ -99,6 +104,67 @@ app.post("/api/v1/userDetails", async (c) => {
       },
       500,
     );
+  }
+});
+
+//route-2 for event 2
+
+app.post("/api/v1/userDetails2", async (c) => {
+  try {
+    const {
+      fullName,
+      email,
+      phoneNumber,
+      age,
+      occupation,
+      fitnessLevel,
+      donePopPilates,
+      caffeineSensitive,
+      excitementReason,
+      wantsUpdates,
+      instagramHandle,
+    }: {
+      fullName: string;
+      email: string;
+      phoneNumber: string;
+      age: number;
+      occupation: Jobrole;
+      fitnessLevel: FitnessLevel;
+      donePopPilates: YesNo;
+      caffeineSensitive: CaffeineSensitivity;
+      excitementReason: string;
+      wantsUpdates: YesNo;
+      instagramHandle?: string;
+    } = await c.req.json();
+
+    const prisma = getPrisma(c.env.DATABASE_URL);
+
+    const data = await prisma.event2.create({
+      data: {
+        fullName,
+        email,
+        phoneNumber,
+        age,
+        occupation,
+        fitnessLevel,
+        donePopPilates,
+        caffeineSensitive,
+        excitementReason,
+        wantsUpdates,
+        instagramHandle,
+      },
+    });
+
+    return c.json(
+      { message: "USER DETAILS SAVED SUCCESSFULLY", data: data },
+      201,
+    );
+  } catch (error: unknown) {
+    console.error(error);
+    return c.json({
+      error: "failed to save the user details",
+      message: "failed to save data, try again",
+    });
   }
 });
 

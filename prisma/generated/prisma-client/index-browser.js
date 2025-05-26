@@ -135,6 +135,23 @@ exports.Prisma.WaitlistEntryScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.Event2ScalarFieldEnum = {
+  id: 'id',
+  fullName: 'fullName',
+  email: 'email',
+  phoneNumber: 'phoneNumber',
+  age: 'age',
+  occupation: 'occupation',
+  fitnessLevel: 'fitnessLevel',
+  donePopPilates: 'donePopPilates',
+  caffeineSensitive: 'caffeineSensitive',
+  excitementReason: 'excitementReason',
+  wantsUpdates: 'wantsUpdates',
+  instagramHandle: 'instagramHandle',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -187,8 +204,38 @@ exports.FutureJourney = exports.$Enums.FutureJourney = {
   NotAtTheMoment: 'NotAtTheMoment'
 };
 
+exports.Jobrole = exports.$Enums.Jobrole = {
+  ENTREPRENEUR_FOUNDER: 'ENTREPRENEUR_FOUNDER',
+  WORKING_PROFESSIONAL: 'WORKING_PROFESSIONAL',
+  CREATIVE_ARTIST: 'CREATIVE_ARTIST',
+  WELLNESS_PRACTITIONER: 'WELLNESS_PRACTITIONER',
+  STUDENT: 'STUDENT',
+  ATHLETE_SPORTSPERSON: 'ATHLETE_SPORTSPERSON',
+  HOMEMAKER: 'HOMEMAKER',
+  EXPLORING: 'EXPLORING',
+  OTHER: 'OTHER'
+};
+
+exports.FitnessLevel = exports.$Enums.FitnessLevel = {
+  BEGINNER: 'BEGINNER',
+  INTERMEDIATE: 'INTERMEDIATE',
+  ADVANCED: 'ADVANCED'
+};
+
+exports.YesNo = exports.$Enums.YesNo = {
+  YES: 'YES',
+  NO: 'NO'
+};
+
+exports.CaffeineSensitivity = exports.$Enums.CaffeineSensitivity = {
+  YES: 'YES',
+  NO: 'NO',
+  NOT_SURE: 'NOT_SURE'
+};
+
 exports.Prisma.ModelName = {
-  WaitlistEntry: 'WaitlistEntry'
+  WaitlistEntry: 'WaitlistEntry',
+  Event2: 'Event2'
 };
 
 /**
