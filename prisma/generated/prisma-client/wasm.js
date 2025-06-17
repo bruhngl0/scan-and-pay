@@ -152,6 +152,21 @@ exports.Prisma.Event2ScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.YogaEventScalarFieldEnum = {
+  id: 'id',
+  fullName: 'fullName',
+  email: 'email',
+  phoneNumber: 'phoneNumber',
+  age: 'age',
+  personaType: 'personaType',
+  yogaExperience: 'yogaExperience',
+  intention: 'intention',
+  aromaSensitivity: 'aromaSensitivity',
+  wantsUpdates: 'wantsUpdates',
+  instagramHandle: 'instagramHandle',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -233,9 +248,42 @@ exports.CaffeineSensitivity = exports.$Enums.CaffeineSensitivity = {
   NOT_SURE: 'NOT_SURE'
 };
 
+exports.PersonaType = exports.$Enums.PersonaType = {
+  ENTREPRENEUR_FOUNDER: 'ENTREPRENEUR_FOUNDER',
+  WORKING_PROFESSIONAL: 'WORKING_PROFESSIONAL',
+  CREATIVE_ARTIST: 'CREATIVE_ARTIST',
+  WELLNESS_PRACTITIONER: 'WELLNESS_PRACTITIONER',
+  STUDENT: 'STUDENT',
+  ATHLETE_FITNESS_ENTHUSIAST: 'ATHLETE_FITNESS_ENTHUSIAST',
+  HOMEMAKER: 'HOMEMAKER',
+  EXPLORING: 'EXPLORING',
+  OTHER: 'OTHER'
+};
+
+exports.YogaExperience = exports.$Enums.YogaExperience = {
+  NEW_TO_YOGA: 'NEW_TO_YOGA',
+  OCCASIONAL_PRACTICE: 'OCCASIONAL_PRACTICE',
+  REGULAR_PRACTICE: 'REGULAR_PRACTICE'
+};
+
+exports.Intention = exports.$Enums.Intention = {
+  DEEP_CALM: 'DEEP_CALM',
+  BREAK_FROM_ROUTINE: 'BREAK_FROM_ROUTINE',
+  SENSORY_EXPLORATION: 'SENSORY_EXPLORATION',
+  GROUNDING_MINDFULNESS: 'GROUNDING_MINDFULNESS',
+  SOMETHING_DIFFERENT: 'SOMETHING_DIFFERENT'
+};
+
+exports.AromaSensitivity = exports.$Enums.AromaSensitivity = {
+  YES: 'YES',
+  NO: 'NO',
+  NOT_SURE: 'NOT_SURE'
+};
+
 exports.Prisma.ModelName = {
   WaitlistEntry: 'WaitlistEntry',
-  Event2: 'Event2'
+  Event2: 'Event2',
+  YogaEvent: 'YogaEvent'
 };
 
 /**

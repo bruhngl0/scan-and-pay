@@ -23,6 +23,11 @@ export type WaitlistEntry = $Result.DefaultSelection<Prisma.$WaitlistEntryPayloa
  * 
  */
 export type Event2 = $Result.DefaultSelection<Prisma.$Event2Payload>
+/**
+ * Model YogaEvent
+ * 
+ */
+export type YogaEvent = $Result.DefaultSelection<Prisma.$YogaEventPayload>
 
 /**
  * Enums
@@ -129,6 +134,50 @@ export const CaffeineSensitivity: {
 
 export type CaffeineSensitivity = (typeof CaffeineSensitivity)[keyof typeof CaffeineSensitivity]
 
+
+export const PersonaType: {
+  ENTREPRENEUR_FOUNDER: 'ENTREPRENEUR_FOUNDER',
+  WORKING_PROFESSIONAL: 'WORKING_PROFESSIONAL',
+  CREATIVE_ARTIST: 'CREATIVE_ARTIST',
+  WELLNESS_PRACTITIONER: 'WELLNESS_PRACTITIONER',
+  STUDENT: 'STUDENT',
+  ATHLETE_FITNESS_ENTHUSIAST: 'ATHLETE_FITNESS_ENTHUSIAST',
+  HOMEMAKER: 'HOMEMAKER',
+  EXPLORING: 'EXPLORING',
+  OTHER: 'OTHER'
+};
+
+export type PersonaType = (typeof PersonaType)[keyof typeof PersonaType]
+
+
+export const YogaExperience: {
+  NEW_TO_YOGA: 'NEW_TO_YOGA',
+  OCCASIONAL_PRACTICE: 'OCCASIONAL_PRACTICE',
+  REGULAR_PRACTICE: 'REGULAR_PRACTICE'
+};
+
+export type YogaExperience = (typeof YogaExperience)[keyof typeof YogaExperience]
+
+
+export const Intention: {
+  DEEP_CALM: 'DEEP_CALM',
+  BREAK_FROM_ROUTINE: 'BREAK_FROM_ROUTINE',
+  SENSORY_EXPLORATION: 'SENSORY_EXPLORATION',
+  GROUNDING_MINDFULNESS: 'GROUNDING_MINDFULNESS',
+  SOMETHING_DIFFERENT: 'SOMETHING_DIFFERENT'
+};
+
+export type Intention = (typeof Intention)[keyof typeof Intention]
+
+
+export const AromaSensitivity: {
+  YES: 'YES',
+  NO: 'NO',
+  NOT_SURE: 'NOT_SURE'
+};
+
+export type AromaSensitivity = (typeof AromaSensitivity)[keyof typeof AromaSensitivity]
+
 }
 
 export type Entry = $Enums.Entry
@@ -170,6 +219,22 @@ export const YesNo: typeof $Enums.YesNo
 export type CaffeineSensitivity = $Enums.CaffeineSensitivity
 
 export const CaffeineSensitivity: typeof $Enums.CaffeineSensitivity
+
+export type PersonaType = $Enums.PersonaType
+
+export const PersonaType: typeof $Enums.PersonaType
+
+export type YogaExperience = $Enums.YogaExperience
+
+export const YogaExperience: typeof $Enums.YogaExperience
+
+export type Intention = $Enums.Intention
+
+export const Intention: typeof $Enums.Intention
+
+export type AromaSensitivity = $Enums.AromaSensitivity
+
+export const AromaSensitivity: typeof $Enums.AromaSensitivity
 
 /**
  * ##  Prisma Client ʲˢ
@@ -315,6 +380,16 @@ export class PrismaClient<
     * ```
     */
   get event2(): Prisma.Event2Delegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.yogaEvent`: Exposes CRUD operations for the **YogaEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more YogaEvents
+    * const yogaEvents = await prisma.yogaEvent.findMany()
+    * ```
+    */
+  get yogaEvent(): Prisma.YogaEventDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -756,7 +831,8 @@ export namespace Prisma {
 
   export const ModelName: {
     WaitlistEntry: 'WaitlistEntry',
-    Event2: 'Event2'
+    Event2: 'Event2',
+    YogaEvent: 'YogaEvent'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -775,7 +851,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "waitlistEntry" | "event2"
+      modelProps: "waitlistEntry" | "event2" | "yogaEvent"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -927,6 +1003,80 @@ export namespace Prisma {
           }
         }
       }
+      YogaEvent: {
+        payload: Prisma.$YogaEventPayload<ExtArgs>
+        fields: Prisma.YogaEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.YogaEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.YogaEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>
+          }
+          findFirst: {
+            args: Prisma.YogaEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.YogaEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>
+          }
+          findMany: {
+            args: Prisma.YogaEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>[]
+          }
+          create: {
+            args: Prisma.YogaEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>
+          }
+          createMany: {
+            args: Prisma.YogaEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.YogaEventCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>[]
+          }
+          delete: {
+            args: Prisma.YogaEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>
+          }
+          update: {
+            args: Prisma.YogaEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.YogaEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.YogaEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.YogaEventUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>[]
+          }
+          upsert: {
+            args: Prisma.YogaEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YogaEventPayload>
+          }
+          aggregate: {
+            args: Prisma.YogaEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYogaEvent>
+          }
+          groupBy: {
+            args: Prisma.YogaEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YogaEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.YogaEventCountArgs<ExtArgs>
+            result: $Utils.Optional<YogaEventCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1013,6 +1163,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     waitlistEntry?: WaitlistEntryOmit
     event2?: Event2Omit
+    yogaEvent?: YogaEventOmit
   }
 
   /* Types for Logging */
@@ -3378,6 +3529,1126 @@ export namespace Prisma {
 
 
   /**
+   * Model YogaEvent
+   */
+
+  export type AggregateYogaEvent = {
+    _count: YogaEventCountAggregateOutputType | null
+    _avg: YogaEventAvgAggregateOutputType | null
+    _sum: YogaEventSumAggregateOutputType | null
+    _min: YogaEventMinAggregateOutputType | null
+    _max: YogaEventMaxAggregateOutputType | null
+  }
+
+  export type YogaEventAvgAggregateOutputType = {
+    age: number | null
+  }
+
+  export type YogaEventSumAggregateOutputType = {
+    age: number | null
+  }
+
+  export type YogaEventMinAggregateOutputType = {
+    id: string | null
+    fullName: string | null
+    email: string | null
+    phoneNumber: string | null
+    age: number | null
+    personaType: $Enums.PersonaType | null
+    yogaExperience: $Enums.YogaExperience | null
+    intention: $Enums.Intention | null
+    aromaSensitivity: $Enums.AromaSensitivity | null
+    wantsUpdates: $Enums.YesNo | null
+    instagramHandle: string | null
+    createdAt: Date | null
+  }
+
+  export type YogaEventMaxAggregateOutputType = {
+    id: string | null
+    fullName: string | null
+    email: string | null
+    phoneNumber: string | null
+    age: number | null
+    personaType: $Enums.PersonaType | null
+    yogaExperience: $Enums.YogaExperience | null
+    intention: $Enums.Intention | null
+    aromaSensitivity: $Enums.AromaSensitivity | null
+    wantsUpdates: $Enums.YesNo | null
+    instagramHandle: string | null
+    createdAt: Date | null
+  }
+
+  export type YogaEventCountAggregateOutputType = {
+    id: number
+    fullName: number
+    email: number
+    phoneNumber: number
+    age: number
+    personaType: number
+    yogaExperience: number
+    intention: number
+    aromaSensitivity: number
+    wantsUpdates: number
+    instagramHandle: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type YogaEventAvgAggregateInputType = {
+    age?: true
+  }
+
+  export type YogaEventSumAggregateInputType = {
+    age?: true
+  }
+
+  export type YogaEventMinAggregateInputType = {
+    id?: true
+    fullName?: true
+    email?: true
+    phoneNumber?: true
+    age?: true
+    personaType?: true
+    yogaExperience?: true
+    intention?: true
+    aromaSensitivity?: true
+    wantsUpdates?: true
+    instagramHandle?: true
+    createdAt?: true
+  }
+
+  export type YogaEventMaxAggregateInputType = {
+    id?: true
+    fullName?: true
+    email?: true
+    phoneNumber?: true
+    age?: true
+    personaType?: true
+    yogaExperience?: true
+    intention?: true
+    aromaSensitivity?: true
+    wantsUpdates?: true
+    instagramHandle?: true
+    createdAt?: true
+  }
+
+  export type YogaEventCountAggregateInputType = {
+    id?: true
+    fullName?: true
+    email?: true
+    phoneNumber?: true
+    age?: true
+    personaType?: true
+    yogaExperience?: true
+    intention?: true
+    aromaSensitivity?: true
+    wantsUpdates?: true
+    instagramHandle?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type YogaEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YogaEvent to aggregate.
+     */
+    where?: YogaEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YogaEvents to fetch.
+     */
+    orderBy?: YogaEventOrderByWithRelationInput | YogaEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: YogaEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YogaEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YogaEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned YogaEvents
+    **/
+    _count?: true | YogaEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: YogaEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: YogaEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: YogaEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: YogaEventMaxAggregateInputType
+  }
+
+  export type GetYogaEventAggregateType<T extends YogaEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateYogaEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateYogaEvent[P]>
+      : GetScalarType<T[P], AggregateYogaEvent[P]>
+  }
+
+
+
+
+  export type YogaEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YogaEventWhereInput
+    orderBy?: YogaEventOrderByWithAggregationInput | YogaEventOrderByWithAggregationInput[]
+    by: YogaEventScalarFieldEnum[] | YogaEventScalarFieldEnum
+    having?: YogaEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: YogaEventCountAggregateInputType | true
+    _avg?: YogaEventAvgAggregateInputType
+    _sum?: YogaEventSumAggregateInputType
+    _min?: YogaEventMinAggregateInputType
+    _max?: YogaEventMaxAggregateInputType
+  }
+
+  export type YogaEventGroupByOutputType = {
+    id: string
+    fullName: string
+    email: string
+    phoneNumber: string
+    age: number
+    personaType: $Enums.PersonaType
+    yogaExperience: $Enums.YogaExperience
+    intention: $Enums.Intention
+    aromaSensitivity: $Enums.AromaSensitivity
+    wantsUpdates: $Enums.YesNo
+    instagramHandle: string | null
+    createdAt: Date
+    _count: YogaEventCountAggregateOutputType | null
+    _avg: YogaEventAvgAggregateOutputType | null
+    _sum: YogaEventSumAggregateOutputType | null
+    _min: YogaEventMinAggregateOutputType | null
+    _max: YogaEventMaxAggregateOutputType | null
+  }
+
+  type GetYogaEventGroupByPayload<T extends YogaEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<YogaEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof YogaEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], YogaEventGroupByOutputType[P]>
+            : GetScalarType<T[P], YogaEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type YogaEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fullName?: boolean
+    email?: boolean
+    phoneNumber?: boolean
+    age?: boolean
+    personaType?: boolean
+    yogaExperience?: boolean
+    intention?: boolean
+    aromaSensitivity?: boolean
+    wantsUpdates?: boolean
+    instagramHandle?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["yogaEvent"]>
+
+  export type YogaEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fullName?: boolean
+    email?: boolean
+    phoneNumber?: boolean
+    age?: boolean
+    personaType?: boolean
+    yogaExperience?: boolean
+    intention?: boolean
+    aromaSensitivity?: boolean
+    wantsUpdates?: boolean
+    instagramHandle?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["yogaEvent"]>
+
+  export type YogaEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fullName?: boolean
+    email?: boolean
+    phoneNumber?: boolean
+    age?: boolean
+    personaType?: boolean
+    yogaExperience?: boolean
+    intention?: boolean
+    aromaSensitivity?: boolean
+    wantsUpdates?: boolean
+    instagramHandle?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["yogaEvent"]>
+
+  export type YogaEventSelectScalar = {
+    id?: boolean
+    fullName?: boolean
+    email?: boolean
+    phoneNumber?: boolean
+    age?: boolean
+    personaType?: boolean
+    yogaExperience?: boolean
+    intention?: boolean
+    aromaSensitivity?: boolean
+    wantsUpdates?: boolean
+    instagramHandle?: boolean
+    createdAt?: boolean
+  }
+
+  export type YogaEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "email" | "phoneNumber" | "age" | "personaType" | "yogaExperience" | "intention" | "aromaSensitivity" | "wantsUpdates" | "instagramHandle" | "createdAt", ExtArgs["result"]["yogaEvent"]>
+
+  export type $YogaEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YogaEvent"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      fullName: string
+      email: string
+      phoneNumber: string
+      age: number
+      personaType: $Enums.PersonaType
+      yogaExperience: $Enums.YogaExperience
+      intention: $Enums.Intention
+      aromaSensitivity: $Enums.AromaSensitivity
+      wantsUpdates: $Enums.YesNo
+      instagramHandle: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["yogaEvent"]>
+    composites: {}
+  }
+
+  type YogaEventGetPayload<S extends boolean | null | undefined | YogaEventDefaultArgs> = $Result.GetResult<Prisma.$YogaEventPayload, S>
+
+  type YogaEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<YogaEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: YogaEventCountAggregateInputType | true
+    }
+
+  export interface YogaEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YogaEvent'], meta: { name: 'YogaEvent' } }
+    /**
+     * Find zero or one YogaEvent that matches the filter.
+     * @param {YogaEventFindUniqueArgs} args - Arguments to find a YogaEvent
+     * @example
+     * // Get one YogaEvent
+     * const yogaEvent = await prisma.yogaEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends YogaEventFindUniqueArgs>(args: SelectSubset<T, YogaEventFindUniqueArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one YogaEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {YogaEventFindUniqueOrThrowArgs} args - Arguments to find a YogaEvent
+     * @example
+     * // Get one YogaEvent
+     * const yogaEvent = await prisma.yogaEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends YogaEventFindUniqueOrThrowArgs>(args: SelectSubset<T, YogaEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first YogaEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventFindFirstArgs} args - Arguments to find a YogaEvent
+     * @example
+     * // Get one YogaEvent
+     * const yogaEvent = await prisma.yogaEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends YogaEventFindFirstArgs>(args?: SelectSubset<T, YogaEventFindFirstArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first YogaEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventFindFirstOrThrowArgs} args - Arguments to find a YogaEvent
+     * @example
+     * // Get one YogaEvent
+     * const yogaEvent = await prisma.yogaEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends YogaEventFindFirstOrThrowArgs>(args?: SelectSubset<T, YogaEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more YogaEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all YogaEvents
+     * const yogaEvents = await prisma.yogaEvent.findMany()
+     * 
+     * // Get first 10 YogaEvents
+     * const yogaEvents = await prisma.yogaEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const yogaEventWithIdOnly = await prisma.yogaEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends YogaEventFindManyArgs>(args?: SelectSubset<T, YogaEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a YogaEvent.
+     * @param {YogaEventCreateArgs} args - Arguments to create a YogaEvent.
+     * @example
+     * // Create one YogaEvent
+     * const YogaEvent = await prisma.yogaEvent.create({
+     *   data: {
+     *     // ... data to create a YogaEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends YogaEventCreateArgs>(args: SelectSubset<T, YogaEventCreateArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many YogaEvents.
+     * @param {YogaEventCreateManyArgs} args - Arguments to create many YogaEvents.
+     * @example
+     * // Create many YogaEvents
+     * const yogaEvent = await prisma.yogaEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends YogaEventCreateManyArgs>(args?: SelectSubset<T, YogaEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many YogaEvents and returns the data saved in the database.
+     * @param {YogaEventCreateManyAndReturnArgs} args - Arguments to create many YogaEvents.
+     * @example
+     * // Create many YogaEvents
+     * const yogaEvent = await prisma.yogaEvent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many YogaEvents and only return the `id`
+     * const yogaEventWithIdOnly = await prisma.yogaEvent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends YogaEventCreateManyAndReturnArgs>(args?: SelectSubset<T, YogaEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a YogaEvent.
+     * @param {YogaEventDeleteArgs} args - Arguments to delete one YogaEvent.
+     * @example
+     * // Delete one YogaEvent
+     * const YogaEvent = await prisma.yogaEvent.delete({
+     *   where: {
+     *     // ... filter to delete one YogaEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends YogaEventDeleteArgs>(args: SelectSubset<T, YogaEventDeleteArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one YogaEvent.
+     * @param {YogaEventUpdateArgs} args - Arguments to update one YogaEvent.
+     * @example
+     * // Update one YogaEvent
+     * const yogaEvent = await prisma.yogaEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends YogaEventUpdateArgs>(args: SelectSubset<T, YogaEventUpdateArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more YogaEvents.
+     * @param {YogaEventDeleteManyArgs} args - Arguments to filter YogaEvents to delete.
+     * @example
+     * // Delete a few YogaEvents
+     * const { count } = await prisma.yogaEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends YogaEventDeleteManyArgs>(args?: SelectSubset<T, YogaEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YogaEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many YogaEvents
+     * const yogaEvent = await prisma.yogaEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends YogaEventUpdateManyArgs>(args: SelectSubset<T, YogaEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YogaEvents and returns the data updated in the database.
+     * @param {YogaEventUpdateManyAndReturnArgs} args - Arguments to update many YogaEvents.
+     * @example
+     * // Update many YogaEvents
+     * const yogaEvent = await prisma.yogaEvent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more YogaEvents and only return the `id`
+     * const yogaEventWithIdOnly = await prisma.yogaEvent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends YogaEventUpdateManyAndReturnArgs>(args: SelectSubset<T, YogaEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one YogaEvent.
+     * @param {YogaEventUpsertArgs} args - Arguments to update or create a YogaEvent.
+     * @example
+     * // Update or create a YogaEvent
+     * const yogaEvent = await prisma.yogaEvent.upsert({
+     *   create: {
+     *     // ... data to create a YogaEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the YogaEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends YogaEventUpsertArgs>(args: SelectSubset<T, YogaEventUpsertArgs<ExtArgs>>): Prisma__YogaEventClient<$Result.GetResult<Prisma.$YogaEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of YogaEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventCountArgs} args - Arguments to filter YogaEvents to count.
+     * @example
+     * // Count the number of YogaEvents
+     * const count = await prisma.yogaEvent.count({
+     *   where: {
+     *     // ... the filter for the YogaEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends YogaEventCountArgs>(
+      args?: Subset<T, YogaEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], YogaEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a YogaEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends YogaEventAggregateArgs>(args: Subset<T, YogaEventAggregateArgs>): Prisma.PrismaPromise<GetYogaEventAggregateType<T>>
+
+    /**
+     * Group by YogaEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YogaEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends YogaEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: YogaEventGroupByArgs['orderBy'] }
+        : { orderBy?: YogaEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, YogaEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYogaEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the YogaEvent model
+   */
+  readonly fields: YogaEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for YogaEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__YogaEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the YogaEvent model
+   */
+  interface YogaEventFieldRefs {
+    readonly id: FieldRef<"YogaEvent", 'String'>
+    readonly fullName: FieldRef<"YogaEvent", 'String'>
+    readonly email: FieldRef<"YogaEvent", 'String'>
+    readonly phoneNumber: FieldRef<"YogaEvent", 'String'>
+    readonly age: FieldRef<"YogaEvent", 'Int'>
+    readonly personaType: FieldRef<"YogaEvent", 'PersonaType'>
+    readonly yogaExperience: FieldRef<"YogaEvent", 'YogaExperience'>
+    readonly intention: FieldRef<"YogaEvent", 'Intention'>
+    readonly aromaSensitivity: FieldRef<"YogaEvent", 'AromaSensitivity'>
+    readonly wantsUpdates: FieldRef<"YogaEvent", 'YesNo'>
+    readonly instagramHandle: FieldRef<"YogaEvent", 'String'>
+    readonly createdAt: FieldRef<"YogaEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * YogaEvent findUnique
+   */
+  export type YogaEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * Filter, which YogaEvent to fetch.
+     */
+    where: YogaEventWhereUniqueInput
+  }
+
+  /**
+   * YogaEvent findUniqueOrThrow
+   */
+  export type YogaEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * Filter, which YogaEvent to fetch.
+     */
+    where: YogaEventWhereUniqueInput
+  }
+
+  /**
+   * YogaEvent findFirst
+   */
+  export type YogaEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * Filter, which YogaEvent to fetch.
+     */
+    where?: YogaEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YogaEvents to fetch.
+     */
+    orderBy?: YogaEventOrderByWithRelationInput | YogaEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YogaEvents.
+     */
+    cursor?: YogaEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YogaEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YogaEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YogaEvents.
+     */
+    distinct?: YogaEventScalarFieldEnum | YogaEventScalarFieldEnum[]
+  }
+
+  /**
+   * YogaEvent findFirstOrThrow
+   */
+  export type YogaEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * Filter, which YogaEvent to fetch.
+     */
+    where?: YogaEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YogaEvents to fetch.
+     */
+    orderBy?: YogaEventOrderByWithRelationInput | YogaEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YogaEvents.
+     */
+    cursor?: YogaEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YogaEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YogaEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YogaEvents.
+     */
+    distinct?: YogaEventScalarFieldEnum | YogaEventScalarFieldEnum[]
+  }
+
+  /**
+   * YogaEvent findMany
+   */
+  export type YogaEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * Filter, which YogaEvents to fetch.
+     */
+    where?: YogaEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YogaEvents to fetch.
+     */
+    orderBy?: YogaEventOrderByWithRelationInput | YogaEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing YogaEvents.
+     */
+    cursor?: YogaEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YogaEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YogaEvents.
+     */
+    skip?: number
+    distinct?: YogaEventScalarFieldEnum | YogaEventScalarFieldEnum[]
+  }
+
+  /**
+   * YogaEvent create
+   */
+  export type YogaEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * The data needed to create a YogaEvent.
+     */
+    data: XOR<YogaEventCreateInput, YogaEventUncheckedCreateInput>
+  }
+
+  /**
+   * YogaEvent createMany
+   */
+  export type YogaEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many YogaEvents.
+     */
+    data: YogaEventCreateManyInput | YogaEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YogaEvent createManyAndReturn
+   */
+  export type YogaEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * The data used to create many YogaEvents.
+     */
+    data: YogaEventCreateManyInput | YogaEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YogaEvent update
+   */
+  export type YogaEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * The data needed to update a YogaEvent.
+     */
+    data: XOR<YogaEventUpdateInput, YogaEventUncheckedUpdateInput>
+    /**
+     * Choose, which YogaEvent to update.
+     */
+    where: YogaEventWhereUniqueInput
+  }
+
+  /**
+   * YogaEvent updateMany
+   */
+  export type YogaEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YogaEvents.
+     */
+    data: XOR<YogaEventUpdateManyMutationInput, YogaEventUncheckedUpdateManyInput>
+    /**
+     * Filter which YogaEvents to update
+     */
+    where?: YogaEventWhereInput
+    /**
+     * Limit how many YogaEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * YogaEvent updateManyAndReturn
+   */
+  export type YogaEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * The data used to update YogaEvents.
+     */
+    data: XOR<YogaEventUpdateManyMutationInput, YogaEventUncheckedUpdateManyInput>
+    /**
+     * Filter which YogaEvents to update
+     */
+    where?: YogaEventWhereInput
+    /**
+     * Limit how many YogaEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * YogaEvent upsert
+   */
+  export type YogaEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * The filter to search for the YogaEvent to update in case it exists.
+     */
+    where: YogaEventWhereUniqueInput
+    /**
+     * In case the YogaEvent found by the `where` argument doesn't exist, create a new YogaEvent with this data.
+     */
+    create: XOR<YogaEventCreateInput, YogaEventUncheckedCreateInput>
+    /**
+     * In case the YogaEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YogaEventUpdateInput, YogaEventUncheckedUpdateInput>
+  }
+
+  /**
+   * YogaEvent delete
+   */
+  export type YogaEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+    /**
+     * Filter which YogaEvent to delete.
+     */
+    where: YogaEventWhereUniqueInput
+  }
+
+  /**
+   * YogaEvent deleteMany
+   */
+  export type YogaEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YogaEvents to delete
+     */
+    where?: YogaEventWhereInput
+    /**
+     * Limit how many YogaEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * YogaEvent without action
+   */
+  export type YogaEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YogaEvent
+     */
+    select?: YogaEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YogaEvent
+     */
+    omit?: YogaEventOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3427,6 +4698,24 @@ export namespace Prisma {
   };
 
   export type Event2ScalarFieldEnum = (typeof Event2ScalarFieldEnum)[keyof typeof Event2ScalarFieldEnum]
+
+
+  export const YogaEventScalarFieldEnum: {
+    id: 'id',
+    fullName: 'fullName',
+    email: 'email',
+    phoneNumber: 'phoneNumber',
+    age: 'age',
+    personaType: 'personaType',
+    yogaExperience: 'yogaExperience',
+    intention: 'intention',
+    aromaSensitivity: 'aromaSensitivity',
+    wantsUpdates: 'wantsUpdates',
+    instagramHandle: 'instagramHandle',
+    createdAt: 'createdAt'
+  };
+
+  export type YogaEventScalarFieldEnum = (typeof YogaEventScalarFieldEnum)[keyof typeof YogaEventScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3623,6 +4912,62 @@ export namespace Prisma {
    * Reference to a field of type 'CaffeineSensitivity[]'
    */
   export type ListEnumCaffeineSensitivityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CaffeineSensitivity[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'PersonaType'
+   */
+  export type EnumPersonaTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PersonaType'>
+    
+
+
+  /**
+   * Reference to a field of type 'PersonaType[]'
+   */
+  export type ListEnumPersonaTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PersonaType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'YogaExperience'
+   */
+  export type EnumYogaExperienceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'YogaExperience'>
+    
+
+
+  /**
+   * Reference to a field of type 'YogaExperience[]'
+   */
+  export type ListEnumYogaExperienceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'YogaExperience[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Intention'
+   */
+  export type EnumIntentionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Intention'>
+    
+
+
+  /**
+   * Reference to a field of type 'Intention[]'
+   */
+  export type ListEnumIntentionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Intention[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'AromaSensitivity'
+   */
+  export type EnumAromaSensitivityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AromaSensitivity'>
+    
+
+
+  /**
+   * Reference to a field of type 'AromaSensitivity[]'
+   */
+  export type ListEnumAromaSensitivityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AromaSensitivity[]'>
     
 
 
@@ -3829,6 +5174,95 @@ export namespace Prisma {
     instagramHandle?: StringNullableWithAggregatesFilter<"Event2"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Event2"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Event2"> | Date | string
+  }
+
+  export type YogaEventWhereInput = {
+    AND?: YogaEventWhereInput | YogaEventWhereInput[]
+    OR?: YogaEventWhereInput[]
+    NOT?: YogaEventWhereInput | YogaEventWhereInput[]
+    id?: StringFilter<"YogaEvent"> | string
+    fullName?: StringFilter<"YogaEvent"> | string
+    email?: StringFilter<"YogaEvent"> | string
+    phoneNumber?: StringFilter<"YogaEvent"> | string
+    age?: IntFilter<"YogaEvent"> | number
+    personaType?: EnumPersonaTypeFilter<"YogaEvent"> | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceFilter<"YogaEvent"> | $Enums.YogaExperience
+    intention?: EnumIntentionFilter<"YogaEvent"> | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityFilter<"YogaEvent"> | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoFilter<"YogaEvent"> | $Enums.YesNo
+    instagramHandle?: StringNullableFilter<"YogaEvent"> | string | null
+    createdAt?: DateTimeFilter<"YogaEvent"> | Date | string
+  }
+
+  export type YogaEventOrderByWithRelationInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    age?: SortOrder
+    personaType?: SortOrder
+    yogaExperience?: SortOrder
+    intention?: SortOrder
+    aromaSensitivity?: SortOrder
+    wantsUpdates?: SortOrder
+    instagramHandle?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type YogaEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    email?: string
+    AND?: YogaEventWhereInput | YogaEventWhereInput[]
+    OR?: YogaEventWhereInput[]
+    NOT?: YogaEventWhereInput | YogaEventWhereInput[]
+    fullName?: StringFilter<"YogaEvent"> | string
+    phoneNumber?: StringFilter<"YogaEvent"> | string
+    age?: IntFilter<"YogaEvent"> | number
+    personaType?: EnumPersonaTypeFilter<"YogaEvent"> | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceFilter<"YogaEvent"> | $Enums.YogaExperience
+    intention?: EnumIntentionFilter<"YogaEvent"> | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityFilter<"YogaEvent"> | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoFilter<"YogaEvent"> | $Enums.YesNo
+    instagramHandle?: StringNullableFilter<"YogaEvent"> | string | null
+    createdAt?: DateTimeFilter<"YogaEvent"> | Date | string
+  }, "id" | "email">
+
+  export type YogaEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    age?: SortOrder
+    personaType?: SortOrder
+    yogaExperience?: SortOrder
+    intention?: SortOrder
+    aromaSensitivity?: SortOrder
+    wantsUpdates?: SortOrder
+    instagramHandle?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: YogaEventCountOrderByAggregateInput
+    _avg?: YogaEventAvgOrderByAggregateInput
+    _max?: YogaEventMaxOrderByAggregateInput
+    _min?: YogaEventMinOrderByAggregateInput
+    _sum?: YogaEventSumOrderByAggregateInput
+  }
+
+  export type YogaEventScalarWhereWithAggregatesInput = {
+    AND?: YogaEventScalarWhereWithAggregatesInput | YogaEventScalarWhereWithAggregatesInput[]
+    OR?: YogaEventScalarWhereWithAggregatesInput[]
+    NOT?: YogaEventScalarWhereWithAggregatesInput | YogaEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"YogaEvent"> | string
+    fullName?: StringWithAggregatesFilter<"YogaEvent"> | string
+    email?: StringWithAggregatesFilter<"YogaEvent"> | string
+    phoneNumber?: StringWithAggregatesFilter<"YogaEvent"> | string
+    age?: IntWithAggregatesFilter<"YogaEvent"> | number
+    personaType?: EnumPersonaTypeWithAggregatesFilter<"YogaEvent"> | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceWithAggregatesFilter<"YogaEvent"> | $Enums.YogaExperience
+    intention?: EnumIntentionWithAggregatesFilter<"YogaEvent"> | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityWithAggregatesFilter<"YogaEvent"> | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoWithAggregatesFilter<"YogaEvent"> | $Enums.YesNo
+    instagramHandle?: StringNullableWithAggregatesFilter<"YogaEvent"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"YogaEvent"> | Date | string
   }
 
   export type WaitlistEntryCreateInput = {
@@ -4050,6 +5484,111 @@ export namespace Prisma {
     instagramHandle?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YogaEventCreateInput = {
+    id?: string
+    fullName: string
+    email: string
+    phoneNumber: string
+    age: number
+    personaType: $Enums.PersonaType
+    yogaExperience: $Enums.YogaExperience
+    intention: $Enums.Intention
+    aromaSensitivity: $Enums.AromaSensitivity
+    wantsUpdates: $Enums.YesNo
+    instagramHandle?: string | null
+    createdAt?: Date | string
+  }
+
+  export type YogaEventUncheckedCreateInput = {
+    id?: string
+    fullName: string
+    email: string
+    phoneNumber: string
+    age: number
+    personaType: $Enums.PersonaType
+    yogaExperience: $Enums.YogaExperience
+    intention: $Enums.Intention
+    aromaSensitivity: $Enums.AromaSensitivity
+    wantsUpdates: $Enums.YesNo
+    instagramHandle?: string | null
+    createdAt?: Date | string
+  }
+
+  export type YogaEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    personaType?: EnumPersonaTypeFieldUpdateOperationsInput | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceFieldUpdateOperationsInput | $Enums.YogaExperience
+    intention?: EnumIntentionFieldUpdateOperationsInput | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityFieldUpdateOperationsInput | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoFieldUpdateOperationsInput | $Enums.YesNo
+    instagramHandle?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YogaEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    personaType?: EnumPersonaTypeFieldUpdateOperationsInput | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceFieldUpdateOperationsInput | $Enums.YogaExperience
+    intention?: EnumIntentionFieldUpdateOperationsInput | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityFieldUpdateOperationsInput | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoFieldUpdateOperationsInput | $Enums.YesNo
+    instagramHandle?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YogaEventCreateManyInput = {
+    id?: string
+    fullName: string
+    email: string
+    phoneNumber: string
+    age: number
+    personaType: $Enums.PersonaType
+    yogaExperience: $Enums.YogaExperience
+    intention: $Enums.Intention
+    aromaSensitivity: $Enums.AromaSensitivity
+    wantsUpdates: $Enums.YesNo
+    instagramHandle?: string | null
+    createdAt?: Date | string
+  }
+
+  export type YogaEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    personaType?: EnumPersonaTypeFieldUpdateOperationsInput | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceFieldUpdateOperationsInput | $Enums.YogaExperience
+    intention?: EnumIntentionFieldUpdateOperationsInput | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityFieldUpdateOperationsInput | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoFieldUpdateOperationsInput | $Enums.YesNo
+    instagramHandle?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YogaEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    personaType?: EnumPersonaTypeFieldUpdateOperationsInput | $Enums.PersonaType
+    yogaExperience?: EnumYogaExperienceFieldUpdateOperationsInput | $Enums.YogaExperience
+    intention?: EnumIntentionFieldUpdateOperationsInput | $Enums.Intention
+    aromaSensitivity?: EnumAromaSensitivityFieldUpdateOperationsInput | $Enums.AromaSensitivity
+    wantsUpdates?: EnumYesNoFieldUpdateOperationsInput | $Enums.YesNo
+    instagramHandle?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4469,6 +6008,127 @@ export namespace Prisma {
     _max?: NestedEnumCaffeineSensitivityFilter<$PrismaModel>
   }
 
+  export type EnumPersonaTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PersonaType | EnumPersonaTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPersonaTypeFilter<$PrismaModel> | $Enums.PersonaType
+  }
+
+  export type EnumYogaExperienceFilter<$PrismaModel = never> = {
+    equals?: $Enums.YogaExperience | EnumYogaExperienceFieldRefInput<$PrismaModel>
+    in?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    not?: NestedEnumYogaExperienceFilter<$PrismaModel> | $Enums.YogaExperience
+  }
+
+  export type EnumIntentionFilter<$PrismaModel = never> = {
+    equals?: $Enums.Intention | EnumIntentionFieldRefInput<$PrismaModel>
+    in?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    not?: NestedEnumIntentionFilter<$PrismaModel> | $Enums.Intention
+  }
+
+  export type EnumAromaSensitivityFilter<$PrismaModel = never> = {
+    equals?: $Enums.AromaSensitivity | EnumAromaSensitivityFieldRefInput<$PrismaModel>
+    in?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    not?: NestedEnumAromaSensitivityFilter<$PrismaModel> | $Enums.AromaSensitivity
+  }
+
+  export type YogaEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    age?: SortOrder
+    personaType?: SortOrder
+    yogaExperience?: SortOrder
+    intention?: SortOrder
+    aromaSensitivity?: SortOrder
+    wantsUpdates?: SortOrder
+    instagramHandle?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type YogaEventAvgOrderByAggregateInput = {
+    age?: SortOrder
+  }
+
+  export type YogaEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    age?: SortOrder
+    personaType?: SortOrder
+    yogaExperience?: SortOrder
+    intention?: SortOrder
+    aromaSensitivity?: SortOrder
+    wantsUpdates?: SortOrder
+    instagramHandle?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type YogaEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    age?: SortOrder
+    personaType?: SortOrder
+    yogaExperience?: SortOrder
+    intention?: SortOrder
+    aromaSensitivity?: SortOrder
+    wantsUpdates?: SortOrder
+    instagramHandle?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type YogaEventSumOrderByAggregateInput = {
+    age?: SortOrder
+  }
+
+  export type EnumPersonaTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PersonaType | EnumPersonaTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPersonaTypeWithAggregatesFilter<$PrismaModel> | $Enums.PersonaType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPersonaTypeFilter<$PrismaModel>
+    _max?: NestedEnumPersonaTypeFilter<$PrismaModel>
+  }
+
+  export type EnumYogaExperienceWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.YogaExperience | EnumYogaExperienceFieldRefInput<$PrismaModel>
+    in?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    not?: NestedEnumYogaExperienceWithAggregatesFilter<$PrismaModel> | $Enums.YogaExperience
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumYogaExperienceFilter<$PrismaModel>
+    _max?: NestedEnumYogaExperienceFilter<$PrismaModel>
+  }
+
+  export type EnumIntentionWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Intention | EnumIntentionFieldRefInput<$PrismaModel>
+    in?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    not?: NestedEnumIntentionWithAggregatesFilter<$PrismaModel> | $Enums.Intention
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumIntentionFilter<$PrismaModel>
+    _max?: NestedEnumIntentionFilter<$PrismaModel>
+  }
+
+  export type EnumAromaSensitivityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AromaSensitivity | EnumAromaSensitivityFieldRefInput<$PrismaModel>
+    in?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    not?: NestedEnumAromaSensitivityWithAggregatesFilter<$PrismaModel> | $Enums.AromaSensitivity
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAromaSensitivityFilter<$PrismaModel>
+    _max?: NestedEnumAromaSensitivityFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -4531,6 +6191,22 @@ export namespace Prisma {
 
   export type EnumCaffeineSensitivityFieldUpdateOperationsInput = {
     set?: $Enums.CaffeineSensitivity
+  }
+
+  export type EnumPersonaTypeFieldUpdateOperationsInput = {
+    set?: $Enums.PersonaType
+  }
+
+  export type EnumYogaExperienceFieldUpdateOperationsInput = {
+    set?: $Enums.YogaExperience
+  }
+
+  export type EnumIntentionFieldUpdateOperationsInput = {
+    set?: $Enums.Intention
+  }
+
+  export type EnumAromaSensitivityFieldUpdateOperationsInput = {
+    set?: $Enums.AromaSensitivity
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -4847,6 +6523,74 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCaffeineSensitivityFilter<$PrismaModel>
     _max?: NestedEnumCaffeineSensitivityFilter<$PrismaModel>
+  }
+
+  export type NestedEnumPersonaTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PersonaType | EnumPersonaTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPersonaTypeFilter<$PrismaModel> | $Enums.PersonaType
+  }
+
+  export type NestedEnumYogaExperienceFilter<$PrismaModel = never> = {
+    equals?: $Enums.YogaExperience | EnumYogaExperienceFieldRefInput<$PrismaModel>
+    in?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    not?: NestedEnumYogaExperienceFilter<$PrismaModel> | $Enums.YogaExperience
+  }
+
+  export type NestedEnumIntentionFilter<$PrismaModel = never> = {
+    equals?: $Enums.Intention | EnumIntentionFieldRefInput<$PrismaModel>
+    in?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    not?: NestedEnumIntentionFilter<$PrismaModel> | $Enums.Intention
+  }
+
+  export type NestedEnumAromaSensitivityFilter<$PrismaModel = never> = {
+    equals?: $Enums.AromaSensitivity | EnumAromaSensitivityFieldRefInput<$PrismaModel>
+    in?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    not?: NestedEnumAromaSensitivityFilter<$PrismaModel> | $Enums.AromaSensitivity
+  }
+
+  export type NestedEnumPersonaTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PersonaType | EnumPersonaTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PersonaType[] | ListEnumPersonaTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPersonaTypeWithAggregatesFilter<$PrismaModel> | $Enums.PersonaType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPersonaTypeFilter<$PrismaModel>
+    _max?: NestedEnumPersonaTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumYogaExperienceWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.YogaExperience | EnumYogaExperienceFieldRefInput<$PrismaModel>
+    in?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.YogaExperience[] | ListEnumYogaExperienceFieldRefInput<$PrismaModel>
+    not?: NestedEnumYogaExperienceWithAggregatesFilter<$PrismaModel> | $Enums.YogaExperience
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumYogaExperienceFilter<$PrismaModel>
+    _max?: NestedEnumYogaExperienceFilter<$PrismaModel>
+  }
+
+  export type NestedEnumIntentionWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Intention | EnumIntentionFieldRefInput<$PrismaModel>
+    in?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Intention[] | ListEnumIntentionFieldRefInput<$PrismaModel>
+    not?: NestedEnumIntentionWithAggregatesFilter<$PrismaModel> | $Enums.Intention
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumIntentionFilter<$PrismaModel>
+    _max?: NestedEnumIntentionFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAromaSensitivityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AromaSensitivity | EnumAromaSensitivityFieldRefInput<$PrismaModel>
+    in?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AromaSensitivity[] | ListEnumAromaSensitivityFieldRefInput<$PrismaModel>
+    not?: NestedEnumAromaSensitivityWithAggregatesFilter<$PrismaModel> | $Enums.AromaSensitivity
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAromaSensitivityFilter<$PrismaModel>
+    _max?: NestedEnumAromaSensitivityFilter<$PrismaModel>
   }
 
 

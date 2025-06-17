@@ -115,3 +115,50 @@ enum CaffeineSensitivity {
   NO
   NOT_SURE
 }
+
+model YogaEvent {
+  id               String           @id @default(cuid())
+  fullName         String
+  email            String           @unique
+  phoneNumber      String
+  age              Int
+  personaType      PersonaType
+  yogaExperience   YogaExperience
+  intention        Intention
+  aromaSensitivity AromaSensitivity
+  wantsUpdates     YesNo
+  instagramHandle  String? // Optional
+  createdAt        DateTime         @default(now())
+}
+
+enum PersonaType {
+  ENTREPRENEUR_FOUNDER
+  WORKING_PROFESSIONAL
+  CREATIVE_ARTIST
+  WELLNESS_PRACTITIONER
+  STUDENT
+  ATHLETE_FITNESS_ENTHUSIAST
+  HOMEMAKER
+  EXPLORING
+  OTHER
+}
+
+enum YogaExperience {
+  NEW_TO_YOGA
+  OCCASIONAL_PRACTICE
+  REGULAR_PRACTICE
+}
+
+enum Intention {
+  DEEP_CALM
+  BREAK_FROM_ROUTINE
+  SENSORY_EXPLORATION
+  GROUNDING_MINDFULNESS
+  SOMETHING_DIFFERENT
+}
+
+enum AromaSensitivity {
+  YES
+  NO
+  NOT_SURE
+}

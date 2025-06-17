@@ -10,10 +10,15 @@ import {
   FitnessLevel,
   YesNo,
   CaffeineSensitivity,
+  PersonaType,
+  YogaExperience,
+  Intention,
+  AromaSensitivity,
 } from "../prisma/generated/prisma-client/edge";
 
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { cors } from "hono/cors";
+import { Context } from "hono/jsx";
 
 const app = new Hono<{
   Bindings: {
@@ -150,6 +155,62 @@ app.post("/api/v1/userDetails2", async (c) => {
         donePopPilates,
         caffeineSensitive,
         excitementReason,
+        wantsUpdates,
+        instagramHandle,
+      },
+    });
+
+    return c.json(
+      { message: "USER DETAILS SAVED SUCCESSFULLY", data: data },
+      201,
+    );
+  } catch (error: unknown) {
+    console.error(error);
+    return c.json({
+      error: "failed to save the user details",
+      message: "failed to save data, try again",
+    });
+  }
+});
+
+app.post("/api/v1/yoga-event", async (c) => {
+  try {
+    const {
+      fullName,
+      email,
+      phoneNumber,
+      age,
+      personaType,
+      yogaExperience,
+      intention,
+      aromaSensitivity,
+      wantsUpdates,
+      instagramHandle,
+    }: {
+      fullName: string;
+      email: string;
+      phoneNumber: string;
+      age: number;
+      personaType: PersonaType;
+      yogaExperience: YogaExperience;
+      intention: Intention;
+      aromaSensitivity: AromaSensitivity;
+      wantsUpdates: YesNo;
+      instagramHandle?: string;
+    } = await c.req.json();
+
+    const prisma = getPrisma(c.env.DATABASE_URL);
+
+    const data = await prisma.yogaEvent.create({
+      data: {
+        fullName,
+        email,
+        phoneNumber,
+        age,
+        personaType,
+        yogaExperience,
+        intention,
+        aromaSensitivity,
         wantsUpdates,
         instagramHandle,
       },
